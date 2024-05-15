@@ -18,19 +18,24 @@ export type PropsCard = {
 export default function Card(props: PropsCard) {
   const { title, description, level, type, icons, nation } = props;
   return (
-    <li className="flex border mb-96 items-center">
-      <h1 className="mr-40">{title}</h1>
-      <p className="mr-10 w-[900px]">{description}</p>
-      <h3 className="mr-10">Уровень: {level}</h3>
-      <div className="mr-10">
-        <h3>Тип: {type.title}</h3>
-      </div>
-      <div className="mr-10">
-        <h3>{nation.title}</h3>{' '}
+    <li className="flex border px-4 items-center">
+      <div>
+        <h1 className="mr-40 font-bold">{title}</h1>
+        <p className="mr-10 w-[900px]">{description}</p>
+        <h3 className="mr-10">Уровень: {level}</h3>
+        <div className="mr-10">
+          <h3>Тип: {type.title}</h3>
+        </div>
+        <div className="mr-10">
+          <h3>{nation.title}</h3>{' '}
+        </div>
       </div>
 
-      <img src={icons.medium} alt="Medium Icon" />
-      <img src={nation.icons.large} alt="Medium Icon" />
+      <div className="flex w-[230px] bg-cover bg-no-repeat bg-center">
+        <img src={nation.icons.large} alt="Medium Icon" />
+
+        <img src={icons.medium} alt="Medium Icon" />
+      </div>
     </li>
   );
 }

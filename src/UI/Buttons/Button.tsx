@@ -1,6 +1,6 @@
 import { PropsCard } from '~/entities/Card/Card';
 
-type Props = {
+export type PropsButton = {
   filter: (
     value: string,
     list: PropsCard[],
@@ -11,13 +11,19 @@ type Props = {
   menuItems: [];
 };
 
-export default function Button({ filter, list, setList, menuItems }: Props) {
+export default function Button({
+  filter,
+  list,
+  setList,
+  menuItems,
+}: PropsButton) {
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex px-4 border justify-content-center">
+      <h4 className="font-bold">Фильтр: </h4>
       {menuItems.map((item, index) => {
         return (
           <button
-            className="btn-dark text-white p-1 px-2 mx-5 btn fw-bold"
+            className="bg-black mb-4  btn-dark text-white p-1 px-2 mx-5 btn fw-bold"
             key={index}
             onClick={() => filter(item, list, setList)}
           >
@@ -26,10 +32,10 @@ export default function Button({ filter, list, setList, menuItems }: Props) {
         );
       })}
       <button
-        className="btn-dark text-white p-1 px-3 mx-5 fw-bold btn"
-        onClick={() => setList(list && [])}
+        className="bg-black btn-dark text-white px-3 mx-5 fw-bold btn mb-4"
+        onClick={() => setList(list)}
       >
-        All
+        Показать все!
       </button>
     </div>
   );

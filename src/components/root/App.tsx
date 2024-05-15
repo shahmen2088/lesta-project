@@ -1,39 +1,8 @@
-import { gql, useQuery } from '@apollo/client';
+import { getAllShips } from '../ShipsService/ShipsService';
 import CardList from '~/entities/CardList/CardList';
 
-const QUERY = gql`
-  query Vehicles($languageCode: String = "ru") {
-    vehicles(lang: $languageCode) {
-      title
-      description
-      icons {
-        large
-        medium
-      }
-      level
-      type {
-        name
-        title
-        icons {
-          default
-        }
-      }
-      nation {
-        name
-        title
-        color
-        icons {
-          small
-          medium
-          large
-        }
-      }
-    }
-  }
-`;
-
 export const App = () => {
-  const { loading, error, data } = useQuery(QUERY);
+  const { loading, error, data } = getAllShips();
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -42,7 +11,7 @@ export const App = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-[1500px]">
       <CardList vehicles={data.vehicles} />
     </div>
   );
