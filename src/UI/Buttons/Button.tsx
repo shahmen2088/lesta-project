@@ -23,7 +23,7 @@ export default function Button({
       {menuItems.map((item, index) => {
         return (
           <button
-            className="bg-black mb-4  btn-dark text-white p-1 px-2 mx-5 btn fw-bold"
+            className="bg-black mb-4  btn-dark text-white p-1 px-2 mx-1 btn fw-bold"
             key={index}
             onClick={() => filter(item, list, setList)}
           >

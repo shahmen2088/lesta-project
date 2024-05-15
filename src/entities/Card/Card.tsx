@@ -22,11 +22,11 @@ export default function Card(props: PropsCard) {
       <div>
         <h1 className="mr-40 font-bold">{title}</h1>
         <p className="mr-10 w-[900px]">{description}</p>
-        <h3 className="mr-10">Уровень: {level}</h3>
-        <div className="mr-10">
+        <h3 className="font-medium mr-10">Уровень: {level}</h3>
+        <div className="font-medium mr-10">
           <h3>Тип: {type.title}</h3>
         </div>
-        <div className="mr-10">
+        <div className="font-medium mr-10">
           <h3>{nation.title}</h3>{' '}
         </div>
       </div>
